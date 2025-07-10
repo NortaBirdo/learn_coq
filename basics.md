@@ -1,8 +1,4 @@
-Vernacular - the command for Coq. Must be capitalized. It's a separate meta-language.
-Gallina - language of terms.
-These languages are combined together. 
-
-OPAM - OCalm Package Manager
+# Vernacular command
 
 `Admitted`. Just trust me)
 `Check` - print the type
@@ -13,7 +9,20 @@ OPAM - OCalm Package Manager
 `Example` - unittest for coq. Example <example_name>: <function call> = <expected_result>.
 `Arguments` - id {A} a. It says the param `a` is implicit. for function `A`.
 
-`Notation "A * B" := (prod A B) (at level 40, left associativity): type scope`
+# Types
+
+Every expression in Coq has a type describing what sort of thing it computes. The `Check` command asks Coq to print the type of an expression. Example: `Check (negb true) : bool.`
+
+# Modules
+
+<pre>
+Module Playground.
+  Definition foo : rgb := blue.
+End Playground.
+Definition foo : bool := true.
+Check Playground.foo : rgb.
+Check foo : bool.
+</pre>\
 
 # If
 
@@ -47,9 +56,21 @@ end.
 
 They are not equal from calculations' effectiveness and proof perspective.
 
-# Proof
 
-Proof uses Tactics and has a structure: `Proof. <tactics>. Qed.`. You need an assumption (subgoal) before using it (for example stated example)
+# comparing notations
+`=` is a logical claim that we can attempt to prove.
+`=?`, `<=?` is an expression that Coq computes.
 
-`simple`. This tactics means "simplify". Like (2+2*4 => 10)
-`reflexivity` checks that u=v are convertible and then solves the goal.
+# Notations
+Example:
+<pre>
+Notation "x + y" := (plus x y) (at level 50, left associativity)
+</pre>
+
+where:
+* `at level 50` - **precedence level**, it uses numbers from 0 to 100. Less goes first.
+* `left associativity` - **associativity**. The associativity setting helps to disambiguate expressions containing multiple occurrences of the same symbol. Possible values:  `left`, `right`, `no`.
+
+Each notation symbol is also associated with a *notation* scope. Coq tries to guess what scope is meant from context. Occasionally, it is necessary to help it out by writing, for example, `(x×y)%nat`, and sometimes in what Coq prints it will use %nat to indicate what scope a notation is in.
+
+Pro tip: Coq's notation mechanism is not especially powerful. Don't expect too much from it.
