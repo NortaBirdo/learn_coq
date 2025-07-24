@@ -1,1 +1,6 @@
 sandbox.v
+*.aux
+*.glob
+*.vo
+*.vok
+*.vos
