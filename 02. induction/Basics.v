@@ -1,3 +1,34 @@
+(*
+Summary of proved theorems. 
+
+plus_0_n : forall n : nat, 0 + n = n.
+plus_0_n' : forall n : nat, 0 + n = n.
+plus_1_l : forall n : nat, 1 + n = S n.
+plus_1_neq_0_fristtry : forall n : nat, (n + 1) =? 0 = false.
+plus_id_example forall n m : nat, n = m -> n + n = m + m.
+plus_id_exercise : forall n m o : nat, n = m -> m = o -> n + m = m + o.
+
+mult_0_l : forall n : nat, 0 * n = 0.
+mult_n_0_m_0 : forall p q : nat, (p * 0) + (q * 0) = 0.
+mult_n_1 : forall p : nat, p * 1 = p.
+
+negb_involutive : forall b : bool, negb (negb b) = b. 
+negb_negb_b_eq_b : forall b, negb (negb b) = b.
+zero_nbeq_plus_1 : forall n : nat, 0 =? (n + 1) = false.
+
+andb_commutive : forall b c, andb b c = andb c b.
+andb3_exchange :  forall b c d, andb (andb b c) d = andb (andb b d) c.
+andb_true_elim2 : forall b c : bool, andb b c = true -> c = true.
+andb_eq_orb : forall (b c : bool), (andb b c = orb b c) -> b = c.
+
+negation_fn_applied_twice :
+  forall (f : bool -> bool),
+  (forall (x : bool), f x = negb x) ->
+  forall (b : bool), f (f b) = b.
+
+*)
+
+
 Inductive day : Type :=
   | monday
   | tuesday

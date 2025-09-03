@@ -21,6 +21,12 @@ Proof.
   - (* n = S n' *) simpl. rewrite -> IHn'. reflexivity.  Qed.
 </pre>
 
+To define which variable should be under induction you need to revise Definition. The variable which is used in match must be used for an induction.
+
+**The shape of a proof by induction will match the recursive structure of the program being verified, so make the recursions as simple as possible.**
+
+# Proofs inside proof
+
 ## Using of  Lemma
 
 Suppose we are proving some theorem:
@@ -51,3 +57,21 @@ Proof.
   - simpl. rewrite <- IHm'. rewrite plus_n_Sm. reflexivity.
 Qed.
 </pre>
+
+## `assert` tactic
+
+Sometimes it's more convenient the small proofs to include inside the big one. `assert` does it.
+
+<pre>
+Theorem mult_0_plus : forall n m : nat,
+ (n + 0 + 0) * m = n * m.
+Proof.
+  intros n m.
+  assert ( H : n + 0 + 0 = n).
+   { rewrite add_comm. simpl. rewrite add_comm. reflexivity.}
+  rewrite -> H.
+  reflexivity.
+Qed.
+</pre>
+
+`Set Printing Parentheses` - makes Coq add parentheses explicitly in a goal printing.
