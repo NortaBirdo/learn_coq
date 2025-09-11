@@ -585,13 +585,7 @@ Qed.
 Lemma eq_double : forall b: bin, 
 double_bin (nat_to_bin (bin_to_nat b)) = nat_to_bin( double(bin_to_nat b)).
 Proof. 
- intros b. induction b.
- - simpl. reflexivity.
- - simpl. rewrite add_0_r. rewrite double_bin_to_nat.
-   simpl.
-
-Set Printing Parentheses.
-
+ Admitted.
  
 Lemma eq_incr : forall m : nat,
   incr (nat_to_bin m) = nat_to_bin (S m).
