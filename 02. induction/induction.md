@@ -75,3 +75,5 @@ Qed.
 </pre>
 
 `Set Printing Parentheses` - makes Coq add parentheses explicitly in a goal printing.
+
+`Set Printing All`. Does the same as ...Parentheses plus replaces notations back to the function's call. 

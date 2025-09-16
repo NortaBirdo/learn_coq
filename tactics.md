@@ -31,7 +31,7 @@ A `tactic` is a command that is used between `Proof` and `Qed` to guide the proc
 
 `compute` is shorthand for beta-delta-iota-zeta reductions
 
-`reflexivity` will do some simplification automatically when checking that two sides are equal. It does somewhat more simplification than simpl does -- for example, it tries "unfolding" defined terms, replacing them with their right-hand sides. The reason for this difference is that, if reflexivity succeeds, the whole goal is finished and we don't need to look at whatever expanded expressions. In other words:
+`reflexivity` will do some simplification automatically when checking that two sides are equal. It does somewhat more **simplification and some kind of computation** than simpl does -- for example, it tries "unfolding" defined terms, replacing them with their right-hand sides. The reason for this difference is that, if reflexivity succeeds, the whole goal is finished and we don't need to look at whatever expanded expressions. In other words:
 * to prove e1=e2, fully reduce e1 and e2
 * if the result are alpha-equivalent, succeed.
 
