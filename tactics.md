@@ -19,7 +19,7 @@ A `tactic` is a command that is used between `Proof` and `Qed` to guide the proc
 `->` pronounce "implies"
 
 
-## Intro
+## Intros
 `intros n` moves n from the quantifier in the goal to a *context* of current assumptions.
 
 ## Reduction tactics (`simpl`, `reflexivity`)
@@ -36,6 +36,8 @@ A `tactic` is a command that is used between `Proof` and `Qed` to guide the proc
 * if the result are alpha-equivalent, succeed.
 
 The `=` means that e1 and e2 definitionally equal (convertible). Convertibiliy is *decidable* in Coq, that's what reflexivity does.
+
+Hint: again, remember that reflexivity simplifies expressions a bit more aggressively than simpl.
 
 ## `rewrite`
 `rewrite term` replaces n with m in the goal statement and obtain an equality with the same expression on both sides. Term must have a form: `forall (x1 :A1 ) ... (xn :An ). eq term1 term2`
