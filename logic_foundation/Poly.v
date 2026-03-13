@@ -567,6 +567,7 @@ Proof.
  the finit element (N) does not exist.*)
 Admitted.
 
+End Exercises.
 
 (*
 
