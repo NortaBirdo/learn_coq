@@ -7,7 +7,7 @@ Theorem silly1 : forall (n m : nat),
   n = m.
 Proof.
   intros n m eq.
-  apply eq. (*the shortcut for rewrite → eq. reflexivity. *)
+  apply eq. (*the shortcut for rewrite \u2192 eq. reflexivity. *)
 Qed.
 
 Theorem silly2 : forall (n m o p : nat),
@@ -409,7 +409,7 @@ Proof.
       simpl. discriminate.
     + (* m = S m' *)
       simpl in H. simpl. rewrite <- plus_n_Sm.
-(*if we rewrite with a conditional statement of the form P → a = b, 
+(*if we rewrite with a conditional statement of the form P \u2192 a = b, 
 then Coq tries to rewrite with a = b, and then asks us 
 to prove P in a new subgoal. *)
  rewrite IHn'.
